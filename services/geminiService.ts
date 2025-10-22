@@ -1,12 +1,7 @@
 import { GoogleGenAI, Modality, Part, Content, Type } from "@google/genai";
 import { ChatMessage, QuizQuestion } from "../types";
 
-const API_KEY = process.env.API_KEY;
-if (!API_KEY) {
-  throw new Error("API_KEY environment variable is not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const processDocument = async (content: string, mimeType: string): Promise<string> => {
   const modelName = 'gemini-2.5-flash';
